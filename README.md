@@ -32,6 +32,7 @@ Computer vision capabilities have rapidly been advancing and are expected to bec
 			- [Scene Description and Indexing](#scene-description-and-indexing)
 			- [Geo-Localization and Object Detection](#geo-localization-and-object-detection)
 			- [Cross-View and Heterogenous Observations](#cross-view-and-heterogenous-observations)
+		- [Disaster Scene Description and Indexing](#disaster-scene-description-and-indexing)
 	- [Task Resources](#task-resources)
 		- [Task Coordinators](#task-coordinators)
 		- [System Task](#system-task)
@@ -520,6 +521,10 @@ This task can be extended to support specific object detection. As shown by [Neu
 
 The most challenging task is a further extension of the previoust tasks. This problem seeks to determine if multiple images, each with a different perspective (i.e. ground-based, airborne, overhead satellite), either have the same features of interest in view (i.e. Eiffel tower, the same city intersection, a portion of coastline, etc.). This is important for the dataset, as the images’ metadata includes the geospatial coordinates of where the image was taken, not what the image is looking at. Most of the images also lack pointing metadata. In response, this dataset can be used to develop capabilities for three different localization types: (1) ground footprint of images as GIS polygons; (2) point estimate of primary feature of interest in image; and (3) GIS polygon of a region that contains the image’s contents. The ground footprint will be estimated using cross-view localization techniques using features from auxiliary datasets, including satellite and other imagery. The cross-view localization will be treated as a computer vision correspondence problem, using visual features from the CAP imagery cross referenced against geo-registered satellite imagery.
 
+### Disaster Scene Description and Indexing
+
+Based on the [proposed Tasks](#proposed-tasks), the NIST TREC Video Retrieval Evaluation (TRECVID) 2020 challenege has introduced the [Disaster Scene Description and Indexing (DSDI)](https://www-nlpir.nist.gov/projects/tv2020/dsdi.html) task. The initial 2020 task will focus on building a community of interest and generating a baseline performance to support future challenges and developments. The task scope focuses on the unique [disaster related features]((#dataset-annotations)) of the LADI dataset.
+
 ## Task Resources
 
 Given the high level [Proposed Tasks](#proposed-tasks), we provide recommendations on how to conduct a computer vision challenge to promote the desired development.
@@ -550,7 +555,7 @@ For 2020, development should be based on the LADI dataset hosted as part of the 
 
 #### Testing Dataset
 
-Annotated extracted frames from the video data files to accompany [USGS OFR 2015-1142--Assessment of existing and potential landslide hazards resulting from the April 25, 2015 Gorkha, Nepal earthquake sequence](http://dx.doi.org/10.5066/F7X928BN). Testing can either be conducted on individual frames and treated like static images or as video clips. While there are over ten hours of video, as of 2019, the entire corpus has not been annotated by the LADI team.
+Testing can either be conducted on individual frames and treated like static images or as video clips.
 
 #### Auxiliary Resources
 
@@ -563,9 +568,11 @@ Auxiliary resources include the datasets used for the [Benchmark Machine Annotat
 
 ##### Infrastructure
 
-- [National Inventory of Dams](https://nid.sec.usace.army.mil/)
 - [National Bridge Inventory](https://www.fhwa.dot.gov/bridge/nbi.cfm)
+- [National Inventory of Dams](https://nid.sec.usace.army.mil/)
+- [Natural Earth 1:10m Cultural Vectors](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/)
 - [OpenStreetMap](https://www.openstreetmap.org/about)
+- [U.S. Wind Turbine Database](https://eerscmap.usgs.gov/uswtdb/)
 
 ##### Satellite / Overhead Imagery
 
@@ -618,7 +625,7 @@ We recommend each team may submit a maximum of 4 prioritized runs, per submissio
 
 These FAQs concern data access and use.
 
-#### How is this different than the CAP imagery hosted on the [FEMA CAP Browser](https://disasters.geoplatform.gov/imagerybrowser/?webmap=2c7dabb4a0594861a8bac3944b931d2d) or on the [FEMA S3](http://fema-cap-imagery.s3-website-us-east-1.amazonaws.com/Images/)? 
+#### How is this different than the CAP imagery hosted on the FEMA CAP Browser or on the FEMA S3? 
 
 FEMA is hosting the raw unannotated imagery and the LADI dataset is sourced from this imagery. The FEMA CAP browser website states that the data access is "Public: This dataset is intended for public access and use." As part of LADI, we remove duplicate images and organize the data to facilitate more efficient processing of it. The FEMA hosted data also do not include the human or machine generated annotations of the LADI dataset. The FEMA CAP Browser also only provides the most recent imagery, not all imagery is accessible via it's interface.
 
@@ -676,6 +683,7 @@ Yes, some images were collected by drones. However as of 2019, an overwhelemly m
 - [MIT Technology Review Article on the LADI Dataset](https://www.technologyreview.com/s/614246/ai-image-recognition-improves-disaster-response/)
 - [NIST Overview of the Imagery Dataset for Public Safety](https://www.nist.gov/ctl/pscr/imagery-dataset-public-safety)
 - [ResearchGate Project for the PSIAP dataset](https://www.researchgate.net/project/NIST-PSIAP-Representative-Public-Safety-Video-Dataset)
+- [NIST TRECVID Disaster Scene Description and Indexing (DSDI) Task](https://www-nlpir.nist.gov/projects/tv2020/dsdi.html)
 - [Other software developed as part of the PSIAP dataset effort](https://github.com/search?q=topic%3Apsiap+org%3Amit-ll+fork%3Atrue)
 
 ## Distribution Statement
