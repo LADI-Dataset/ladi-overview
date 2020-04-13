@@ -342,7 +342,7 @@ We defined a reasonable label set that is feasible for crowd sourcing while meet
 - Vehicles
 - Water
 
-For each of the coarse cateogries, there are 4-8 more specific annotations:
+For each of the coarse cateogries, there are 4-9 more specific annotations:
 
 | Damage        | Environment      | Infrastructure     | Vehicles | Water|
 | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -352,8 +352,9 @@ For each of the coarse cateogries, there are 4-8 more specific annotations:
 | road washout | rocks | pipes | truck | puddle |
 | rubble / debris | sand | utility or power lines / electric towers | | river / stream |
 | smoke / fire | shrubs | railway | | |
-| | snow / ice | wireless / radio communication towers | | |
+| | snow / ice | road | | |
 | | trees | water tower || |
+| | |wireless / radio communication towers | | |
 
 We generalized *things* to assist in crowd sourcing. For example, we originally considered including both culvert and pipeline labels but eventually generalized both into pipes. Also during development, the dam label was modified to dam / levee to represent things that regulates water levels. Similarly, the river label  was expanded to river / stream to represent flowing water. As part of this generalization approach, we did not expect nor seek specific experts in these categories. This is in contrast to some the labels produced by commercial services. Whereas the human crowd source annotations will annotate a lake with the lake label, commercial service may label the same image with multiple related labels such as lake, fluvial lake, and oxbow lake.
 
