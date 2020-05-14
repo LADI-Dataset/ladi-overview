@@ -252,10 +252,13 @@ Within the Labels directory, there are a number of files, described below:
 	- `weight` – a numerical score indicating relative confidence in the label
 		- note that the score is not normalized across label sources, therefore, it is not valid to compare the weights from different label sources to one another
 		- In addition, the GCV-web-entity weights should not be used to compare scores between different label_texts, since their score is not normalized between different labels
-- `ladi_aggregated_responses` file provides human annotations of images in the LADI `FEMA_CAP` dataset. Note that each row corresponds to one worker’s annotation of one image. Each image may have multiple annotations from multiple workers. It is up to you to parse and interpret the raw responses. Fields are:
-	- `img_url` – http url of the image file in ladi: can be used to join against the `url` column of `ladi_images_metadata`
+- `ladi_aggregated_responses_url.tsv` and `ladi_aggregated_responses_uuid.tsv` provide the human annotations of images in the LADI `FEMA_CAP` dataset. Note that each row corresponds to one worker’s annotation of one image. Each image may have multiple annotations from multiple workers. It is up to you to parse and interpret the raw responses. The two files contain the same annotation information, they differ only in whether the images are referenced by `url` or `uuid`. Both formats are provided for convenience. The fields for the files are:
+	- `url` – (only in `ladi_aggregated_responses_url`) http url of the image file in ladi: can be used to join against the `url` column of `ladi_images_metadata`
+	- `image_uuid` - (only in `ladi_aggregated_responses_uuid`) the unique image id that this response corresponds to - foreign key to `ladi_images_metadata`'s uuid
 	- `WorkerId` – anonymized numerical ID for each worker
 	- `Answer` – list of labels that the worker said applied to the image. Labels are formatted in the form `category:subcategory`. For example `damage:flood/water`. Note that there may be multiple labels for a given category in a single response.
+
+To download only the images with human annotations, you can just download the set of unique urls in the `ladi_aggregated_responses_url` file using a tool such as `wget`.
 
 ### Metadata and Annotation Database
 
