@@ -258,7 +258,7 @@ Within the Labels directory, there are a number of files, described below:
 	- `WorkerId` – anonymized numerical ID for each worker
 	- `Answer` – list of labels that the worker said applied to the image. Labels are formatted in the form `category:subcategory`. For example `damage:flood/water`. Note that there may be multiple labels for a given category in a single response.
 
-To download only the images with human annotations, you can download the file [ladi-labeled-images.tar.gz](http://ladi.s3-us-west-2.amazonaws.com/ladi-labeled-images.tar.gz) from the top level directory.
+To download only the images with human annotations, you can download the gzipped tar archive [`ladi-labeled-images.tar.gz`](http://ladi.s3-us-west-2.amazonaws.com/ladi-labeled-images.tar.gz) from the top level directory. The directory structure of `ladi-labeled-images.tar.gz` is identical to the S3 directory structure; thus, the `s3_path` entry of `ladi_images_metadata` can be used to reference the local file location by replacing the `s3://` prefix with the path to the directory where the contents of `ladi-labeled-images.tar.gz` are extracted to.
 
 ### Metadata and Annotation Database
 
