@@ -258,7 +258,7 @@ Within the Labels directory, there are a number of files, described below:
 	- `WorkerId` – anonymized numerical ID for each worker
 	- `Answer` – list of labels that the worker said applied to the image. Labels are formatted in the form `category:subcategory`. For example `damage:flood/water`. Note that there may be multiple labels for a given category in a single response.
 
-To download only the images with human annotations, you can just download the set of unique urls in the `ladi_aggregated_responses_url` file using a tool such as `wget`.
+To download only the images with human annotations, you can download the file [ladi-labeled-images.tar.gz](http://ladi.s3-us-west-2.amazonaws.com/ladi-labeled-images.tar.gz) from the top level directory.
 
 ### Metadata and Annotation Database
 
