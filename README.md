@@ -359,6 +359,8 @@ For each of the coarse cateogries, there are 4-9 more specific annotations:
 | | trees | water tower || |
 | | |wireless / radio communication towers | | |
 
+The descriptions of each of the labels are detailed in [this document](labels-description.md).
+
 We generalized *things* to assist in crowd sourcing. For example, we originally considered including both culvert and pipeline labels but eventually generalized both into pipes. Also during development, the dam label was modified to dam / levee to represent things that regulates water levels. Similarly, the river label  was expanded to river / stream to represent flowing water. As part of this generalization approach, we did not expect nor seek specific experts in these categories. This is in contrast to some the labels produced by commercial services. Whereas the human crowd source annotations will annotate a lake with the lake label, commercial service may label the same image with multiple related labels such as lake, fluvial lake, and oxbow lake.
 
 ### Example Source Imagery
