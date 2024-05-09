@@ -32,7 +32,11 @@ Resources:
     Type: S3 Bucket
 DataAtWork:
   Tutorials:
-  - Title: LADI Tutorials
+  - Title: LADI v2 Overview
+    URL: https://github.com/LADI-Dataset/ladi-overview
+    AuthorName: Jeffrey Liu, Sam Scheele, Katherine Picchione
+    AuthorURL: https://github.com/LADI-Dataset
+  - Title: LADI v1 Tutorials
     URL: https://github.com/LADI-Dataset/ladi-tutorial
     AuthorName: Andrew Weinert, Jianyu Mao, Kiana Harris, Nae-Rong Chang, Caleb Pennell, Yiming Ren, Ryan Earley, Nadia Dimitrova
     AuthorURL: https://github.com/LADI-Dataset
