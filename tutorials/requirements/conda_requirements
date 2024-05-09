@@ -1,0 +1,10 @@
+python
+jupyter
+transformers=4.37.2
+accelerate
+pandas
+pytorch
+pytorch-cuda=11.8
+scikit-learn
+geopandas
+arcgis
