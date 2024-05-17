@@ -65,6 +65,7 @@ The `v2a` variant of the dataset presents the same images with a modified set of
 - trees_damage
 - water_any
 
+
 #### Dataset Summary: v1
 The dataset code also supports loading a subset of the LADI v1 dataset, which consists of roughly 25k images, broken into two tasks, 'infrastructure' and 'damage'. The LADI v1 dataset was labeled by crowdsourced workers and the labels shouldn't be considered definitive. The data may be suitable for a pretraining task prior to fine-tuning on LADI v2.
 
@@ -107,7 +108,11 @@ We provide a set of pretrained classifiers on the LADI v2 dataset for downstream
 
 We also provide "reference" versions of each model which are trained only on the `train` split of the LADI v2 dataset, to aid in reproducing the results presented in the paper.
 - [LADI-v2-classifier-small-reference](https://huggingface.co/MITLL/LADI-v2-classifier-small) 
-- [LADI-v2-classifier-large-reference](https://huggingface.co/MITLL/LADI-v2-classifier-large-reference) 
+- [LADI-v2-classifier-large-reference](https://huggingface.co/MITLL/LADI-v2-classifier-large-reference)
+
+### Demo Application
+![Demonstration ArcGIS Online Application of LADI v2 classifier outputs for select 2024 disaster events](https://github.com/LADI-Dataset/ladi-overview/assets/45951413/0504a73f-3427-4625-9a8f-826ef886bca4)
+A demonstration application is available on ArcGIS Online showing a potential use case of the classifier in action. The web app shows locations of Civil Air Patrol images taken after various storms in April and May 2024. The LADI-v2-classifier-small is run on each of the images and the annotations are stored in a feature service. This allows for filtering of images based on classified labels, as well as tying symbology to the output of the classifiers to identify regions of interest. The demo is available [here](https://experience.arcgis.com/experience/12facb85c45a4b7e9c4caef04be6e4d2/?draft=true#data_s=id%3AdataSource_2-18f59fc7c23-layer-2%3A13187).
 
 ## Repository Structure
 This repository contains reference code for performing inference using the pretrained classifier, as well as the scripts used in training and finetuning the LADI-v2-classifiers.
