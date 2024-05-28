@@ -8,19 +8,38 @@ For LADI v2, the authors used CAP volunteers who were trained in the FEMA damage
 
 ## Getting Started
 The LADI v2 dataset is available on Hugging Face at [MITLL/LADI-v2-dataset](https://huggingface.co/datasets/MITLL/LADI-v2-dataset). This is the recommended method.
+### Default configuration
+The default configuration uses the `v2a` labels with images resized to fit within 1800x1200. This is the recommended configuration for most use cases.
+
+```python
+from datasets import load_dataset
+
+ds = load_dataset("MITLL/LADI-v2-dataset")
+```
+
+### Advanced Usage
+If you need access to the full resolution images, the `v2` label set, or the `v1` dataset, you should load from the script revision. This will use a custom dataset loader script, which will require you to set `revision=script` and `trust_remote_code=True`.
+
+The available configurations for the script are: `v2`, `v2a`, `v2_resized`, `v2a_resized`, `v1_damage`, and `v1_infra`.
 
 The first time you load the dataset, you should pass `download_ladi=True`, which will download a local copy of the relevant dataset version to your local system at `base_dir`.
 ```python
 from datasets import load_dataset
 
 ds = load_dataset("MITLL/LADI-v2-dataset", "v2a_resized",
-                streaming=True, download_ladi=True,
-                base_dir='./ladi_dataset', trust_remote_code=True)
+                revision="script",
+                streaming=True,
+                download_ladi=True,
+                base_dir='./ladi_dataset',
+                trust_remote_code=True)
 ```
 This only needs to be done once, and subsequent calls can omit the argument, and it will automatically use your local copy.
 ```python
 ds = load_dataset("MITLL/LADI-v2-dataset", "v2a_resized",
-                streaming=True, base_dir='./ladi_dataset', trust_remote_code=True)
+                revision="script",
+                streaming=True,
+                base_dir='./ladi_dataset',
+                trust_remote_code=True)
 ``` 
 
 You can also manually access the dataset at https://ladi.s3.amazonaws.com/index.html, or via AWS S3 at `s3://ladi`, and the provided dataset class in `training/LADI-v2-dataset`. We recommend using the [LADI_v2_resized](https://ladi.s3.amazonaws.com/ladi_v2_resized.tar.gz) version which resizes the images to 1800x1200, which should be large enough for most applications, but drastically reduces the overall dataset file size.
