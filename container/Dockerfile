@@ -7,9 +7,9 @@ RUN python3 -m venv /cap_env && source /cap_env/bin/activate && pip3 install tor
 
 # part 2: get code necessary to download base models and run inference
 WORKDIR /app
-COPY . .
-WORKDIR /app/inference
+COPY ./build /app/build
+WORKDIR /app/build
 # download models from docker hub, then run a test infer to trigger
 RUN source /cap_env/bin/activate && python dl_models.py
 
-ENTRYPOINT /bin/bash
+ENTRYPOINT ["/bin/bash"]

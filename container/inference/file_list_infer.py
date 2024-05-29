@@ -74,4 +74,3 @@ if __name__ == "__main__":
     
     df = pd.DataFrame(data=outputs)
     df.to_csv('outputs.csv', index=False)
-        

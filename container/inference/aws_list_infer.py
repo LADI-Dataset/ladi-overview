@@ -1,7 +1,9 @@
 import os
+import sys
 import boto3
 import numpy as np
 import pandas as pd
+import torch
 
 from torch.utils.data import Dataset
 from transformers import pipeline
@@ -66,17 +68,33 @@ def postprocess_output(infer_output):
     return dict(sorted(output_dict.items()))
 
 if __name__ == "__main__":
+    if not torch.cuda.is_available():
+        print("Can't find cuda, exiting...")
+        sys.exit(1)
     pipe = pipeline(model=MODEL_NAME,
          task='image-classification',
          function_to_apply='sigmoid',
          device=0,
-         num_workers=40)
+         num_workers=4)
     
-    urls = ["s3://fema-cap-imagery/Images/12/20131/IMG_6150_4d5f3c2b-0b7c-4ed8-a1e3-b444f1bde0e0.jpg"]
+    urls = []
+    s3_client = boto3.client('s3', config=Config(signature_version=UNSIGNED))
+    paginator = s3_client.get_paginator('list_objects_v2')
+    pages = paginator.paginate(Bucket="fema-cap-imagery", Prefix=sys.argv[1])
+
+    for page in pages:
+        try:
+            for obj in page['Contents']:
+                urls.append(f"s3://fema-cap-imagery/{obj['Key']}")
+        except KeyError:
+            print("No files exist")
+            if len(urls) == 0:
+                sys.exit(1)
+
     ds = AWSListDataset(urls)
     
     outputs = []
-    for i, output in tqdm(enumerate(pipe(ds, batch_size=12, top_k=20))):
+    for i, output in tqdm(enumerate(pipe(ds, batch_size=4, top_k=20))):
         classes = postprocess_output(output)
         curr_filename = urls[i]
         img_metadata = ds.metadata_map[curr_filename]
@@ -84,5 +102,6 @@ if __name__ == "__main__":
         outputs.append({'file_path': curr_filename, **classes, **img_metadata})
     
     df = pd.DataFrame(data=outputs)
+    df.file_path.str.replace('s3://fema-cap-imagery/', 'https://fema-cap-imagery.s3.amazonaws.com/')
     df.to_csv('outputs.csv', index=False)
 

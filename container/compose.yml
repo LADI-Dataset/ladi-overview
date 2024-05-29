@@ -1,0 +1,15 @@
+services:
+  cap_classifier:
+    image: cap
+    build: .
+    volumes:
+      - './inference:/app/inference'
+    command: ["-c", "cd /app/inference && source /cap_env/bin/activate && python aws_list_infer.py $FOLDER"]
+    ipc: "host"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
