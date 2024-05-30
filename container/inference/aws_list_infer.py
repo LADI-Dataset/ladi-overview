@@ -102,6 +102,6 @@ if __name__ == "__main__":
         outputs.append({'file_path': curr_filename, **classes, **img_metadata})
     
     df = pd.DataFrame(data=outputs)
-    df.file_path.str.replace('s3://fema-cap-imagery/', 'https://fema-cap-imagery.s3.amazonaws.com/')
+    df.file_path = df.file_path.str.replace('s3://fema-cap-imagery/', 'https://fema-cap-imagery.s3.amazonaws.com/')
     df.to_csv('outputs.csv', index=False)
 
