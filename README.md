@@ -6,8 +6,11 @@ Version 1 of the LADI dataset was funded as part of a NIST public safety innovat
 
 For LADI v2, the authors used CAP volunteers who were trained in the FEMA damage assessment process, and we collected damage labels using the defined [FEMA Preliminary Damage Assessment scale](https://www.fema.gov/disaster/how-declared/preliminary-damage-assessments): unaffected, affected, minor, major, destroyed. These damage levels have specific criteria, helping reduce the subjectivity of identifying whether a structure is damaged. We also provide pretrained classifiers to aid in replication, and serve as a basis for fine-tuning and potential deployments.
 
+A technical writeup of the dataset and classifiers is available [here](https://arxiv.org/abs/2406.02780).
+
 ## Getting Started
 The LADI v2 dataset is available on Hugging Face at [MITLL/LADI-v2-dataset](https://huggingface.co/datasets/MITLL/LADI-v2-dataset). This is the recommended access method.
+
 ### Default configuration
 The default configuration uses the `v2a` labels with images resized to fit within 1800x1200. This is the recommended configuration for most use cases.
 
