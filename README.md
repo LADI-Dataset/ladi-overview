@@ -21,7 +21,7 @@ ds = load_dataset("MITLL/LADI-v2-dataset")
 ```
 
 ### Advanced Usage
-If you need access to the full resolution images, the `v2` label set, or the `v1` dataset, you should load from the script revision. This will use a custom dataset loader script, which will require you to set `revision=script` and `trust_remote_code=True`.
+If you need access to the full resolution images, the `v2` label set, or the `v1` dataset, you should load from the script revision. This will use a custom dataset loader script, which will require you to set `revision="script"` and `trust_remote_code=True`.
 
 The available configurations for the script are: `v2`, `v2a`, `v2_resized`, `v2a_resized`, `v1_damage`, and `v1_infra`.
 
