@@ -136,6 +136,8 @@ We also provide "reference" versions of each model which are trained only on the
 ![Demonstration ArcGIS Online Application of LADI v2 classifier outputs for select 2024 disaster events](https://github.com/LADI-Dataset/ladi-overview/assets/45951413/0504a73f-3427-4625-9a8f-826ef886bca4)
 A demonstration application is [available](https://experience.arcgis.com/experience/12facb85c45a4b7e9c4caef04be6e4d2/?draft=true#data_s=id%3AdataSource_2-18f59fc7c23-layer-2%3A13187) on ArcGIS Online showing a potential use case of the classifier in action. The web app shows locations of Civil Air Patrol images taken after various storms in April and May 2024. LADI-v2-classifier-small is run on each of the images and the annotations are stored in a feature service. This allows for filtering of images based on classified labels, as well as tying symbology to the output of the classifiers to identify regions of interest. 
 
+**NOTE:** The demo application may contain results produced by earlier versions of the model weights. While we expect (but have not verified) that the demo application is broadly representative of the results you can expect from the most recent version of the model, some of the images in the demo may not exactly match the output of the most recent model. For this reason, it is discouraged to match the outputs of your code against the demo application to test the correctness of your code.
+
 ## Repository Structure
 This repository contains reference code for performing inference using the pretrained classifier, as well as the scripts used in training and finetuning the LADI-v2-classifiers.
 
