@@ -158,7 +158,7 @@ We encourage the use of the [GitHub Issues](https://github.com/LADI-Dataset/ladi
 ## Citations
 
 ### LADI v2
-If you use the LADI v2 dataset or classifiers, please cite the following:
+If you use the LADI v2 dataset or classifiers, please cite [our paper](https://arxiv.org/abs/2406.02780):
 
 ```tex
 @misc{ladi_v2,
